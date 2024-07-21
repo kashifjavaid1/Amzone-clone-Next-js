@@ -1,7 +1,7 @@
 import React from "react";
 import { IoLocationOutline, IoSearchOutline } from "react-icons/io5";
 import { TiShoppingCart } from "react-icons/ti";
-
+import { IoIosMenu } from "react-icons/io";
 export default function Navbar() {
   return (
     <header className="bg-[#0f1111] text-white">
@@ -38,7 +38,8 @@ export default function Navbar() {
               </select>
               <input
                 placeholder="Search Amazon"
-                className="w-full lg:min-w-[400px] xl:min-w-[600px] border-none focus:outline-none text-sm lg:text-base py-2 px-3"
+                spellCheck={false}
+                className=" w-full border-none focus:outline-none text-sm lg:text-base py-2 px-3"
               />
               <div className="flex items-center justify-center w-10 lg:w-12 bg-[#febd68] rounded-r">
                 <IoSearchOutline className="text-xl lg:text-2xl" />
@@ -60,9 +61,33 @@ export default function Navbar() {
 
           {/* Cart */}
           <div className="flex items-center border-2 border-transparent hover:border-white p-2">
-            <TiShoppingCart className="text-2xl sm:text-3xl" />
-            <span className="ml-1 text-xs sm:text-sm">Cart</span>
+            <TiShoppingCart className="text-2xl mb-2" />
+            <span className="mt-[13px] font-bold text-sm">Cart</span>
           </div>
+        </div>
+      </div>
+      {/* Menu bar */}
+      <div className="flex  flex-wrap bg-gray-800 p-2 px-10 ">
+        <div className="flex items-center text-center text-white cursor-pointer border-2 border-transparent hover:border-white">
+          <IoIosMenu className="text-white mr-2" />
+          <p className="text-sm text-white font-bold mr-4">All</p>
+        </div>
+        <div className="flex space-x-1 flex-wrap ">
+          <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
+            Today's Deals
+          </h1>
+          <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
+            Customer Service
+          </h1>
+          <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
+            Registry
+          </h1>
+          <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
+            Gift Cards
+          </h1>
+          <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
+            Sell
+          </h1>
         </div>
       </div>
     </header>
