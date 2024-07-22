@@ -29,7 +29,7 @@ export default function Navbar() {
           {/* Search Bar */}
           <div className="w-full lg:w-auto order-3 lg:order-none mt-2 lg:mt-0 lg:flex-grow lg:mx-4">
             <div className="flex text-black rounded border-2 border-transparent hover:border-[#febd68]">
-              <select className="hidden sm:block w-16 lg:w-20 bg-[#e6e6e6] text-xs lg:text-sm rounded-l border-none focus:outline-none">
+              <select className="hidden sm:block w-16 lg:w-20 bg-[#e6e6e6] text-xs lg:text-sm rounded-l border-none focus:outline-none text-center">
                 <option>All</option>
                 <option>Books</option>
                 <option>Clothing</option>
