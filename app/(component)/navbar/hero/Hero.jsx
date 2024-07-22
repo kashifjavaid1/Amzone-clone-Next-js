@@ -48,11 +48,11 @@ export default function Hero() {
   }, [currentSlide, slides.length]);
   return (
     <div className="relative h-[600px] w-full overflow-hidden">
-      <div className="relative w-full h-full flex items-center justify-center">
+      <div className="relative  w-full h-60  sm:w-full sm:h-full flex items-center justify-center">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+            className={`absolute top-0 left-0 w-full sm:w-full h-full transition-opacity duration-500 ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -64,16 +64,16 @@ export default function Hero() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 flex items-center justify-between px-4">
+        <div className=" sm:absolute inset-0 flex items-center justify-between px-4">
           <button
             onClick={prevSlide}
-            className="bg-opacity-50 text-white p-3 rounded-full flex items-center justify-center"
+            className="bg-opacity-50 text-black p-3 rounded-full flex items-center justify-center"
           >
             <FaLessThan size={24} />
           </button>
           <button
             onClick={nextSlide}
-            className="bg-opacity-50 text-white p-3 rounded-full flex items-center justify-center"
+            className="bg-opacity-50 text-black p-3 rounded-full flex items-center justify-center"
           >
             <FaGreaterThan size={24} />
           </button>
