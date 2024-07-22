@@ -47,7 +47,7 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [currentSlide, slides.length]);
   return (
-    <div className="relative h-[600px] w-full overflow-hidden">
+    <div className="relative h-[600px]  mx-auto overflow-hidden">
       <div className="relative  w-full h-60  sm:w-full sm:h-full flex items-center justify-center">
         {slides.map((slide, index) => (
           <div
@@ -64,7 +64,7 @@ export default function Hero() {
             />
           </div>
         ))}
-        <div className=" sm:absolute inset-0 flex items-center justify-between px-4">
+        <div className=" sm:absolute inset-0 flex  justify-between px-4">
           <button
             onClick={prevSlide}
             className="bg-opacity-50 text-black p-3 rounded-full flex items-center justify-center"
