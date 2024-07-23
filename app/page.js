@@ -1,6 +1,8 @@
+import Categories from "./(component)/categories/Categories";
 import { Card } from "./(component)/navbar/hero/card/Card";
 import Hero from "./(component)/navbar/hero/Hero";
 import Navbar from "./(component)/navbar/Navbar";
+import Products from "./(component)/products/Products";
 
 export default function Home() {
   return (
@@ -25,6 +27,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* <Products /> */}
+        <Categories />
       </div>
     </>
   );
