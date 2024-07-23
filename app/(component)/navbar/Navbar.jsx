@@ -74,7 +74,7 @@ export default function Navbar() {
         </div>
         <div className="flex space-x-1 flex-wrap ">
           <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
-            Today's Deals
+            Todays Deals
           </h1>
           <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
             Customer Service

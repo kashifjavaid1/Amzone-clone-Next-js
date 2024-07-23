@@ -8,28 +8,35 @@ const categories = [
   { src: "/images/gerden.jpg", alt: "Garden category", label: "Garden" },
   { src: "/images/games.jpg", alt: "Games category", label: "Games" },
   { src: "/images/kitchen.jpg", alt: "Kitchen category", label: "Kitchen" },
+  { src: "/images/apple.webp", alt: "Apple", label: "Apple" },
+  { src: "/images/grocery.webp", alt: "grocery", label: "Grocery" },
+  { src: "/images/beauty.webp", alt: "grocery", label: "Beauty" },
+  { src: "/images/clearance.webp", alt: "grocery", label: "Beauty" },
+  { src: "/images/HouseholdEssentials.webp", alt: "grocery", label: "Beauty" },
 ];
 
 export default function Categories() {
   return (
-    <div className="flex flex-col items-center p-10">
-      <h1 className="text-[30px] text-[#333333] font-bold mb-4">
+    <div className="flex flex-col mx-10 items-center relative bottom-48 sm:bottom-0 p-10 bg-gray-800">
+      <h1 className="text-md sm:text-3xl text-white font-bold mb-4">
         Featured categories
       </h1>
-      <Link href={"#"} className="text-[14px] text-[#333333] mb-8">
+      <Link href={"#"} className="text-sm sm:text-base text-white mb-2">
         Shop all
       </Link>
-      <div className="w-full flex justify-center space-x-10 items-center">
+      <div className="w-full  flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-10 items-center">
         {categories.map((category, index) => (
           <div key={index} className="flex flex-col items-center">
             <Image
               src={category.src}
               alt={category.alt}
-              width={200}
+              width={150}
               height={200}
               className="p-2 rounded-full w-full"
             />
-            <h1 className="mt-2">{category.label}</h1>
+            <h1 className="mt-2 text-white font-bold text-sm sm:text-base">
+              {category.label}
+            </h1>
           </div>
         ))}
       </div>
