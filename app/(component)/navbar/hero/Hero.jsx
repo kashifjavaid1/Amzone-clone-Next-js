@@ -60,7 +60,7 @@ export default function Hero() {
               src={slide.src}
               alt={slide.alt}
               layout="fill"
-              className="object-cover"
+              className="object-cover "
             />
           </div>
         ))}
