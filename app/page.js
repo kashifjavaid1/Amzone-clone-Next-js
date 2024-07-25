@@ -3,8 +3,8 @@ import { Card } from "./(component)/navbar/hero/card/Card";
 import Hero from "./(component)/navbar/hero/Hero";
 import Navbar from "./(component)/navbar/Navbar";
 import GiftCardProducts from "./(component)/products/Products";
-import Products from "./(component)/products/Products";
-
+import footerImage from "../public/images/footer.jpg";
+import Image from "next/image";
 export default function Home() {
   return (
     <>
@@ -29,7 +29,13 @@ export default function Home() {
           </div>
         </div>
         <Categories />
+
         <GiftCardProducts />
+        <div className="bg-[#cfd5d5]">
+          <div className="w-[95%] mx-10 py-20 ">
+            <Image src={footerImage} alt={"Not a found "} />
+          </div>
+        </div>
       </div>
     </>
   );
