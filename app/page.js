@@ -5,6 +5,7 @@ import Navbar from "./(component)/navbar/Navbar";
 import GiftCardProducts from "./(component)/products/Products";
 import footerImage from "../public/images/footer.jpg";
 import Image from "next/image";
+import Footer from "./(component)/footer/Footer";
 export default function Home() {
   return (
     <>
@@ -32,10 +33,12 @@ export default function Home() {
 
         <GiftCardProducts />
         <div className="bg-[#cfd5d5]">
-          <div className="w-[95%] mx-10 py-20 ">
+          <div className=" w-full md:w-[95%] md:mx-auto  py-20 ">
             <Image src={footerImage} alt={"Not a found "} />
           </div>
         </div>
+        {/* footer */}
+        <Footer />
       </div>
     </>
   );
