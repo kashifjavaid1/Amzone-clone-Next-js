@@ -67,13 +67,13 @@ export default function Hero() {
         <div className=" sm:absolute inset-0 flex  justify-between px-4">
           <button
             onClick={prevSlide}
-            className="bg-opacity-50 text-black p-3 rounded-full flex items-center justify-center"
+            className="bg-opacity-50 text-black sm:hidden md:block  p-3 rounded-full flex items-center justify-center"
           >
             <FaLessThan size={24} />
           </button>
           <button
             onClick={nextSlide}
-            className="bg-opacity-50 text-black p-3 rounded-full flex items-center justify-center"
+            className="bg-opacity-50    sm:hidden md:block text-black p-3 rounded-full  items-center justify-center"
           >
             <FaGreaterThan size={24} />
           </button>
