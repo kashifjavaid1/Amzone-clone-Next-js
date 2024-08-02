@@ -64,7 +64,7 @@ export default function Hero() {
             />
           </div>
         ))}
-        <div className=" sm:absolute inset-0 flex  justify-between px-4">
+        <div className=" sm:absolute inset-0 flex sm:hidden md:block justify-between px-4">
           <button
             onClick={prevSlide}
             className="bg-opacity-50 text-black sm:hidden md:block  p-3 rounded-full flex items-center justify-center"
