@@ -24,7 +24,7 @@ export default function Navbar() {
     if (savedCart) {
       setCart(JSON.parse(savedCart));
     }
-  }, []);
+  }, [cart]);
   return (
     <header
       className={`bg-[#0f1111] text-white ${
@@ -89,11 +89,9 @@ export default function Navbar() {
           <Link href="/order" className="cursor-pointer">
             <div className="flex items-center border-2 border-transparent hover:border-white p-2">
               <TiShoppingCart className="text-2xl mb-2 mr-1" />
-              {cart.length > 0 && (
-                <div className="text-lg font-bold text-blue-600 mb-1">
-                  {cart.length}
-                </div>
-              )}
+              <div className="text-lg font-bold text-blue-600 mb-1">
+                {cart.length}
+              </div>
               <span className="mt-[15px] font-bold text-sm">Cart</span>
             </div>
           </Link>
