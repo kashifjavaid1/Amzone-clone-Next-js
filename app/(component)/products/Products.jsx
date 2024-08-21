@@ -5,6 +5,34 @@ import Image from "next/image";
 
 export default function GiftCardProducts() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  const addProductsCard = (product) => {
+    setCart((prevCart) => {
+      let findProduct = prevCart.find((i) => i.id === product.id);
+      let newCart = [];
+      if (findProduct) {
+        prevCart.forEach((cartItem) => {
+          if (cartItem.id === product.id) {
+            newCart.push({
+              ...cartItem,
+              quantity: cartItem.quantity + 1,
+              totalPrice: (cartItem.quantity + 1) * cartItem.price,
+            });
+          } else {
+            newCart.push(cartItem);
+          }
+        });
+      } else {
+        newCart = [
+          ...prevCart,
+          { ...product, quantity: 1, totalPrice: product.price },
+        ];
+      }
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return newCart;
+    });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,11 +44,17 @@ export default function GiftCardProducts() {
       }
     };
     fetchData();
+
+    // Load cart data from localStorage
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
   }, []);
 
   return (
     <div>
-      <h1 className="flex justify-center bg-gray-200  py-10 text-5xl text-black">
+      <h1 className="flex justify-center bg-gray-200 py-10 text-5xl text-black">
         All Categories
       </h1>
       <div className="flex flex-wrap gap-4 justify-center p-4 bg-gray-200">
@@ -41,15 +75,20 @@ export default function GiftCardProducts() {
             </div>
             <div className="p-4">
               <p className="text-xs text-gray-600 mb-1">{product.category}</p>
-              <h2 className="text-sm font-semibold  w-32 mb-2 line-clamp-2">
+              <h2 className="text-sm font-semibold w-32 mb-2 line-clamp-2">
                 {product.title}
               </h2>
             </div>
-            <div className="bg-red-600 text-white p-2  relative top-1 text-center">
-              <span className="text-2xl font-bold">
-                ${product.price.toFixed(2)}
-              </span>
-            </div>
+            <button
+              className="bg-red-600 text-white p-2 relative top-1 text-center w-full"
+              onClick={() => addProductsCard(product)}
+            >
+              <div>
+                <span className="text-2xl font-bold">
+                  ${product.price.toFixed(2)}
+                </span>
+              </div>
+            </button>
           </div>
         ))}
       </div>
