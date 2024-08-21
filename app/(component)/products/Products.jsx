@@ -13,6 +13,7 @@ export default function GiftCardProducts() {
       let newCart = [];
       if (findProduct) {
         prevCart.forEach((cartItem) => {
+          console.log("🚀 ~ prevCart.forEach ~ cartItem:", cartItem);
           if (cartItem.id === product.id) {
             newCart.push({
               ...cartItem,
@@ -80,7 +81,7 @@ export default function GiftCardProducts() {
               </h2>
             </div>
             <button
-              className="bg-red-600 text-white p-2 relative top-1 text-center w-full"
+              className="bg-red-600 text-white p-2 relative top-1 text-center w-full cursor-pointer hover:bg-black"
               onClick={() => addProductsCard(product)}
             >
               <div>

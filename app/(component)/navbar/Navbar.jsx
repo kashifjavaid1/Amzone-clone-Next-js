@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [sticky, setSticky] = useState(false);
-
+  const [cart, setCart] = useState([]);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -19,7 +19,12 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
   return (
     <header
       className={`bg-[#0f1111] text-white ${
@@ -81,10 +86,15 @@ export default function Navbar() {
           </div>
 
           {/* Cart */}
-          <Link href="/order">
+          <Link href="/order" className="cursor-pointer">
             <div className="flex items-center border-2 border-transparent hover:border-white p-2">
-              <TiShoppingCart className="text-2xl mb-2" />
-              <span className="mt-[13px] font-bold text-sm">Cart</span>
+              <TiShoppingCart className="text-2xl mb-2 mr-1" />
+              {cart.length > 0 && (
+                <div className="text-lg font-bold text-blue-600 mb-1">
+                  {cart.length}
+                </div>
+              )}
+              <span className="mt-[15px] font-bold text-sm">Cart</span>
             </div>
           </Link>
         </div>
