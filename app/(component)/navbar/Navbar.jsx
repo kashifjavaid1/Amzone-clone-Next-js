@@ -1,10 +1,31 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { IoLocationOutline, IoSearchOutline } from "react-icons/io5";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
+import Link from "next/link";
+
 export default function Navbar() {
+  const [sticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-[#0f1111] text-white">
+    <header
+      className={`bg-[#0f1111] text-white ${
+        sticky ? "fixed top-0 left-0 w-full z-50" : ""
+      }`}
+    >
       <div className="container mx-auto px-4 py-2">
         <div className="flex flex-wrap items-center justify-between">
           {/* Logo */}
@@ -60,21 +81,23 @@ export default function Navbar() {
           </div>
 
           {/* Cart */}
-          <div className="flex items-center border-2 border-transparent hover:border-white p-2">
-            <TiShoppingCart className="text-2xl mb-2" />
-            <span className="mt-[13px] font-bold text-sm">Cart</span>
-          </div>
+          <Link href="/order">
+            <div className="flex items-center border-2 border-transparent hover:border-white p-2">
+              <TiShoppingCart className="text-2xl mb-2" />
+              <span className="mt-[13px] font-bold text-sm">Cart</span>
+            </div>
+          </Link>
         </div>
       </div>
       {/* Menu bar */}
-      <div className="flex  flex-wrap bg-gray-800 p-2 px-10 ">
+      <div className="flex flex-wrap bg-gray-800 p-2 px-10">
         <div className="flex items-center text-center text-white cursor-pointer border-2 border-transparent hover:border-white">
           <IoIosMenu className="text-white mr-2" />
           <p className="text-sm text-white font-bold mr-4">All</p>
         </div>
-        <div className="flex space-x-1 flex-wrap ">
+        <div className="flex space-x-1 flex-wrap">
           <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
-            Todays Deals
+            Today Deals
           </h1>
           <h1 className="text-sm text-white font-bold px-2 cursor-pointer border-2 border-transparent hover:border-white">
             Customer Service
