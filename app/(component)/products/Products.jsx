@@ -2,34 +2,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 export default function GiftCardProducts() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
   const addProductsCard = (product) => {
+    toast.success("Successfully Add Product!");
     setCart((prevCart) => {
-      let findProduct = prevCart.find((i) => i.id === product.id);
+      const findProduct = prevCart.find((i) => i.id === product.id);
       let newCart = [];
+
       if (findProduct) {
-        prevCart.forEach((cartItem) => {
-          console.log("🚀 ~ prevCart.forEach ~ cartItem:", cartItem);
-          if (cartItem.id === product.id) {
-            newCart.push({
-              ...cartItem,
-              quantity: cartItem.quantity + 1,
-              totalPrice: (cartItem.quantity + 1) * cartItem.price,
-            });
-          } else {
-            newCart.push(cartItem);
-          }
-        });
+        newCart = prevCart.map((cartItem) =>
+          cartItem.id === product.id
+            ? {
+                ...cartItem,
+                quantity: cartItem.quantity + 1,
+                totalPrice: (cartItem.quantity + 1) * cartItem.price,
+              }
+            : cartItem
+        );
       } else {
         newCart = [
           ...prevCart,
           { ...product, quantity: 1, totalPrice: product.price },
         ];
       }
+
       localStorage.setItem("cart", JSON.stringify(newCart));
       return newCart;
     });
@@ -45,8 +46,6 @@ export default function GiftCardProducts() {
       }
     };
     fetchData();
-
-    // Load cart data from localStorage
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       setCart(JSON.parse(savedCart));
