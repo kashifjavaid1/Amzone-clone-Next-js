@@ -20,7 +20,7 @@ export const Card = ({ title, src }) => {
         </div>
         <Link
           href="#"
-          className="relative text-sm  hover:text-orange-400  transition-colors duration-500"
+          className="relative text-md font-bold text-black mb-2 transition-colors duration-500 group-hover:text-orange-600 group-hover:mb-4"
         >
           Shop now
         </Link>
