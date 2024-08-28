@@ -8,11 +8,11 @@ const categories = [
   { src: "/images/gerden.jpg", alt: "Garden category", label: "Garden" },
   { src: "/images/games.jpg", alt: "Games category", label: "Games" },
   { src: "/images/kitchen.jpg", alt: "Kitchen category", label: "Kitchen" },
-  { src: "/images/apple.webp", alt: "Apple", label: "Apple" },
+  { src: "/images/apple.webp", alt: "Apple", label: "mobile" },
   { src: "/images/grocery.webp", alt: "grocery", label: "Grocery" },
   { src: "/images/beauty.webp", alt: "grocery", label: "Beauty" },
-  { src: "/images/clearance.webp", alt: "grocery", label: "Beauty" },
-  { src: "/images/HouseholdEssentials.webp", alt: "grocery", label: "Beauty" },
+  { src: "/images/clearance.webp", alt: "grocery", label: "Clearance" },
+  { src: "/images/HouseholdEssentials.webp", alt: "grocery", label: "Tide" },
 ];
 
 export default function Categories() {

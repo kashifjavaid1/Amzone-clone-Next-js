@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 export default function GiftCardProducts() {
   const [products, setProducts] = useState([]);
@@ -54,9 +55,15 @@ export default function GiftCardProducts() {
 
   return (
     <div>
-      <h1 className="flex justify-center bg-gray-200 py-10 text-5xl text-black">
-        All Categories
-      </h1>
+      <div className="flex flex-col items-center justify-center  bg-gray-200 ">
+        <h1 className="py-10 text-5xl text-black">All Categories</h1>
+        <Link href="/order">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            Buy Order
+          </button>
+        </Link>
+      </div>
+
       <div className="flex flex-wrap gap-4 justify-center p-4 bg-gray-200">
         {products.map((product) => (
           <div

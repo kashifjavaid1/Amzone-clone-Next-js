@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { IoLocationOutline, IoSearchOutline } from "react-icons/io5";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
-import Link from "next/link";
 
 export default function Navbar() {
   const [sticky, setSticky] = useState(false);
@@ -24,7 +23,7 @@ export default function Navbar() {
     if (savedCart) {
       setCart(JSON.parse(savedCart));
     }
-  }, [cart]);
+  }, []);
   return (
     <header
       className={`bg-[#0f1111] text-white ${
@@ -86,7 +85,7 @@ export default function Navbar() {
           </div>
 
           {/* Cart */}
-          <Link href="/order" className="cursor-pointer">
+          <div className="cursor-pointer">
             <div className="flex items-center border-2 border-transparent hover:border-white p-2">
               <TiShoppingCart className="text-2xl mb-2 mr-1" />
               <div className="text-lg font-bold text-blue-600 mb-1">
@@ -94,7 +93,7 @@ export default function Navbar() {
               </div>
               <span className="mt-[15px] font-bold text-sm">Cart</span>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
       {/* Menu bar */}
